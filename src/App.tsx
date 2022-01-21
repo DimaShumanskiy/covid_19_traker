@@ -28,25 +28,4 @@ function App() {
 }
 
 
-// class App extends React.Component {
-//
-//     async componentDidMount() {
-//         const data = await fetchData()
-//         console.log(data)
-//     }
-//
-//
-//     render(){
-//         return (
-//             <div className={s.container}>
-//                 <h1>app</h1>
-//                 <Cards/>
-//                 <CountryPicker/>
-//                 <Chart/>
-//             </div>
-//         );
-//     }
-//
-// }
-
 export default App;

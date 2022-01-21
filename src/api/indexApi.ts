@@ -9,7 +9,7 @@ export type FetchDataType = {
     deaths: BaseValuesType,
     lastUpdate: string
 }
-type BaseValuesType ={
+export type BaseValuesType ={
     detail: string
     value: number
 }

@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import s from './App.module.css';
-
-import {Cards, Chart, CountryPicker} from './components'
-import {fetchData, FetchDataType} from "./api/indexApi"; // ипорты из index
+import {Cards, CountryPicker,Chart } from './components'
+import {fetchData} from './api'
 
 
 function App() {
-    const [data, setData] = useState<FetchDataType>()
+    const [data, setData] = useState({})
 
     useEffect(() => {
         (async () => {

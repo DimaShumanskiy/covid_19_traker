@@ -1,31 +1,35 @@
-import React, {useEffect, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 import s from './App.module.css';
 
 import {Cards, Chart, CountryPicker} from './components'
-import {fetchData, FetchDataType} from "./api/indexApi"; // ипорты из index
+import {fetchData} from "./api/indexApi";
+import coronaImage from './imeges/image.png'
 
 
 function App() {
-    const [data, setData] = useState<FetchDataType>()
+    const [data, setData] = useState<any>()
+    const [country, setCountry] = useState<string>()
 
     useEffect(() => {
         (async () => {
-            const fetchedData = await fetchData()
-            setData(fetchedData)
+            setData(await fetchData())
         })()
     }, [])
 
-    console.log(data)
+    const handleCountryChange = async (country:string) =>{
+        const fetchedData = await fetchData(country)
+        setData(fetchedData)
+        setCountry(country)
+    }
 
     return (
         <div className={s.container}>
-            <h1>app</h1>
+            <img className={s.img} src={coronaImage} alt="corona image"/>
             <Cards data={data}/>
-            <CountryPicker/>
-            <Chart/>
+            <CountryPicker handleCountryChange={handleCountryChange}/>
+            <Chart data={data} country={country}/>
         </div>
     )
 }
-
 
 export default App;

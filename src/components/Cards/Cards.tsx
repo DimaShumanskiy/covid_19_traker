@@ -5,19 +5,14 @@ import {Card, CardContent, Typography, Grid} from "@material-ui/core";
 import CountUp from "react-countup";
 import cx from 'classnames'
 
-
-
-
 type CardsPropsType = {
     data: FetchDataType | undefined
 }
 
 const Cards = ({data}: CardsPropsType) => {
-
     if (!data?.confirmed) {
         return <div>"Loading.."</div>
     }
-    console.log(data.confirmed)
     return (
         <div className={s.container}>
             <Grid container spacing={3} justifyContent='center'>
